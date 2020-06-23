@@ -11,13 +11,13 @@ const DomElement = function(selector, height, width, bg, fontSize) {
   this.createElement = function() {
     if (this.selector[0] === '.') {
       let div = document.createElement('div');
-      div.classList.add(this.selector);
+      div.classList.add(this.selector.slice(1));
       div.style.cssText = 'height: ' + this.height + 'px; width: ' + this.width + 'px; background: ' + this.bg + '; font-size: ' + this.fontSize + 'px;';
       div.textContent = prompt('Введите текст для созданного элемента div:', '');
       document.body.append(div);
     } else if (this.selector[0] === '#') {
       let paragraph = document.createElement('p');
-      paragraph.setAttribute('id', this.selector);
+      paragraph.setAttribute('id', this.selector.slice(1));
       paragraph.style.cssText = 'height: ' + this.height + 'px; width: ' + this.width + 'px; background: ' + this.bg + '; font-size: ' + this.fontSize + 'px;';
       paragraph.textContent = prompt('Введите текст для созданного элемента p:', '');
       document.body.append(paragraph);
